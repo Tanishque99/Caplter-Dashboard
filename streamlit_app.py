@@ -19,7 +19,7 @@ sites = pd.read_csv(sites_path)
 landuse_map = pd.read_csv(landuse_path)
 
 # -----------------------------------------------------------
-# Preprocess (same logic as Dash version)
+# Preprocess data
 # -----------------------------------------------------------
 if "sample_date" in arth.columns:
     arth["sample_date"] = pd.to_datetime(arth["sample_date"], errors="coerce")
@@ -88,7 +88,7 @@ def apply_filters(df, sites, taxa, years):
 # -----------------------------------------------------------
 # Streamlit UI
 # -----------------------------------------------------------
-st.set_page_config(page_title="CAP LTER Arthropods Dashboard", layout="wide")
+st.set_page_config(page_title="CAPLTER Arthropods Dashboard", layout="wide")
 
 st.title("CAP LTER Arthropods Dashboard")
 st.markdown(
@@ -146,9 +146,9 @@ else:
     st.info("No taxa available for the selected filters.")
 
 # -----------------------------------------------------------
-# 2) Quarterly abundance by region
+# 2) Quarterly abundance by land use
 # -----------------------------------------------------------
-st.subheader("Quarterly abundance by region")
+st.subheader("Quarterly abundance by Land use")
 
 if {"region3", "quarter", "count"}.issubset(g.columns) and not g.empty:
     lu_agg = (
