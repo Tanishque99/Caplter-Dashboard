@@ -90,10 +90,10 @@ def apply_filters(df, sites, taxa, years):
 # -----------------------------------------------------------
 st.set_page_config(page_title="CAPLTER Arthropods Dashboard", layout="wide")
 
-st.title("CAP LTER Arthropods Dashboard")
+st.title("CAPLTER Arthropods Dashboard")
 st.markdown(
     "Explore long-term ecological trends in arthropod communities "
-    "across CAP LTER sites."
+    "across CAPLTER sites."
 )
 
 # ---- sidebar filters ----
@@ -187,8 +187,9 @@ if {"lat","lon"}.issubset(g.columns) and not g[["lat","lon"]].dropna().empty:
         size="count",
         hover_name="site_code",
         zoom=8,
-        height=450,
+        height=900,
     )
+    map_fig.update_traces(marker=dict(color="purple"))
     map_fig.update_layout(mapbox_style="open-street-map")
     st.plotly_chart(map_fig, use_container_width=True)
 else:
