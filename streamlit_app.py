@@ -186,8 +186,8 @@ if {"lat","lon"}.issubset(g.columns) and not g[["lat","lon"]].dropna().empty:
         lon="lon",
         size="count",
         hover_name="site_code",
-        zoom=8,
-        height=900,
+        zoom=9,
+        height=800,
     )
     map_fig.update_traces(marker=dict(color="purple"))
     map_fig.update_layout(mapbox_style="open-street-map")
